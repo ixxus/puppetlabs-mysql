@@ -32,7 +32,7 @@ class mysql(
   $ssl_cert              = '',
   $ssl_key               = '',
   $tmpdir                = '',
-  $attempt_compatibility_mode = false,
+  $attempt_compatibility_mode = false
 ) {
 
   if $attempt_compatibility_mode {

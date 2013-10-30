@@ -9,7 +9,7 @@ class mysql::server::backup (
   $backupdatabases = [],
   $file_per_database = false,
   $ensure = 'present',
-  $time = ['23', '5'],
+  $time = ['23', '5']
 ) {
 
   mysql_user { "${backupuser}@localhost":

@@ -9,7 +9,7 @@ class mysql::backup (
   $backupdatabases = [],
   $file_per_database = false,
   $ensure = 'present',
-  $time = ['23', '5'],
+  $time = ['23', '5']
 ) {
 
   crit("This class has been deprecated and callers should directly call
