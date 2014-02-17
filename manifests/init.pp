@@ -104,6 +104,7 @@ class mysql(
   $server_package_name   = $mysql::params::server_package_name,
   $service_name          = $mysql::params::service_name,
   $service_provider      = $mysql::params::service_provider,
+  $service_start         = $mysql::params::service_start,
   $socket                = $mysql::params::socket,
   $ssl                   = $mysql::params::ssl,
   $ssl_ca                = $mysql::params::ssl_ca,

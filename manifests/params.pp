@@ -35,6 +35,7 @@ class mysql::params {
   $ssl                   = false
   $thread_cache_size     = 8
   $thread_stack          = '256K'
+  $service_start         = 'start'
 
   # mysql::bindings
   $java_package_ensure   = 'present'

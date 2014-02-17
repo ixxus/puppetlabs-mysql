@@ -129,7 +129,8 @@ class mysql::config(
   $replicate_wild_do_table          = 'UNSET',
   $replicate_wild_ignore_table      = 'UNSET',
   $ft_min_word_len                  = 'UNSET',
-  $ft_max_word_len                  = 'UNSET'
+  $ft_max_word_len                  = 'UNSET',
+  $service_start                    = $mysql::service_start
 ) inherits mysql {
 
   File {
@@ -158,7 +159,7 @@ class mysql::config(
   # restart.  the reason is that I need the service to be started before mods
   # to the config file which can cause a refresh
   exec { 'mysqld-restart':
-    command     => "service ${service_name} restart",
+    command     => "service ${service_name} stop; service ${service_name} ${service_start}; sleep 5",
     logoutput   => on_failure,
     refreshonly => true,
     path        => '/sbin/:/usr/sbin/:/usr/bin/:/bin/',
