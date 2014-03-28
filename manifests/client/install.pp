@@ -3,9 +3,10 @@ class mysql::client::install(
   $package_ensure = $mysql::client_package_ensure
 ) {
 
-  package { 'mysql_client':
-    ensure => $package_ensure,
-    name   => $package_name,
+  if $package_name {
+    package { 'mysql_client':
+      ensure => $package_ensure,
+      name   => $package_name,
+    }
   }
-
 }

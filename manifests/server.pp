@@ -35,9 +35,11 @@ class mysql::server (
 
   create_resources( 'class', $config_class )
 
-  package { 'mysql-server':
-    ensure => $package_ensure,
-    name   => $package_name,
+  if $package_name {
+    package { 'mysql-server':
+      ensure => $package_ensure,
+      name   => $package_name,
+    }
   }
 
   if $enabled {
