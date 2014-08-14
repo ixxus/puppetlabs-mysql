@@ -1,9 +1,14 @@
 #
-class mysql::server::install {
+class mysql::server::install(
+  $package_name   = $mysql::server::package_name,
+  $package_ensure = $mysql::server::package_ensure
+) {
 
-  package { 'mysql-server':
-    ensure => $mysql::server::package_ensure,
-    name   => $mysql::server::package_name,
+  if $package_name {
+    package { 'mysql-server':
+      ensure => $package_ensure,
+      name   => $package_name,
+    }
   }
 
   # Build the initial databases.
